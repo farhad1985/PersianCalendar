@@ -31,7 +31,8 @@ class WeekDaysView: UIView {
 
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
         collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         addSubview(collection)
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")

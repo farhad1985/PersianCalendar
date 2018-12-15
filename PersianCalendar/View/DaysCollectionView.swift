@@ -13,6 +13,17 @@ class DaysCollectionView: UIView {
     private var collection: UICollectionView!
     fileprivate var days: [String] = []
     private var width: CGFloat = 0
+    private var style: StyleCalendar = .light
+    private var type: CornerType = .circular
+    private var today = ""
+
+    init(style: StyleCalendar, type: CornerType) {
+        super.init(frame: .zero)
+        self.style = style
+        self.type = type
+        
+        setup()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,15 +37,25 @@ class DaysCollectionView: UIView {
         setup()
     }
     
-    func setDate(days: [String]) {
+    func setDate(days: [String], today: String) {
         self.days = days
+        self.today = today
+        collection.reloadData()
+    }
+    
+    func setStyle(style: StyleCalendar, type: CornerType) {
+        self.style = style
+        self.type = type
+
         collection.reloadData()
     }
     
     private func setup() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+
         collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         addSubview(collection)
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")
@@ -70,7 +91,9 @@ extension DaysCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WeekCell
-        cell.title.text = days[indexPath.row]
+        let num = days[indexPath.row]
+        let isToday = num == today
+        cell.config(text: num, style: style, type: type, isToday: isToday)
         return cell
     }
     

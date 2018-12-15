@@ -8,12 +8,29 @@
 
 import UIKit
 
+public enum StyleCalendar {
+    case light
+    case dark
+    case custom(font: UIColor, backCell: UIColor, today: UIColor, selection: UIColor)
+}
+
 public class PersianCalendarView: UIView {
 
     let vwWeek = WeekDaysView()
-    let daysCollection = DaysCollectionView()
+    var daysCollection = DaysCollectionView()
     let viewModel = CalViewModel()
     
+    public var style: StyleCalendar = .dark {
+        didSet {
+            setSytle()
+        }
+    }
+    public var cornerType: CornerType = .circular {
+        didSet {
+            setSytle()
+        }
+    }
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,12 +43,18 @@ public class PersianCalendarView: UIView {
         setup()
     }
     
+    private func setSytle() {
+        daysCollection.setStyle(style: style, type: cornerType)
+    }
+    
     private func setup() {
+        daysCollection = DaysCollectionView(style: style, type: cornerType)
+        
         addSubview(vwWeek)
         addSubview(daysCollection)
         let date = viewModel.getCurrentDate()
         let days = viewModel.daysRange(ofYear: date.year, month: date.month, startDate: date.startDate)
-        daysCollection.setDate(days: days)        
+        daysCollection.setDate(days: days, today: viewModel.getDayOfToday())        
     }
     
     public override func layoutSubviews() {
@@ -41,7 +64,7 @@ public class PersianCalendarView: UIView {
         vwWeek.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         vwWeek.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         vwWeek.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        vwWeek.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        vwWeek.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
         daysCollection.translatesAutoresizingMaskIntoConstraints = false
         daysCollection.leftAnchor.constraint(equalTo: leftAnchor).isActive = true

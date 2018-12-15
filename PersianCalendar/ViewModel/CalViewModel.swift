@@ -62,6 +62,18 @@ struct CalViewModel {
         return (year: comps.year!, month: comps.month!, day: comps.day!)
     }
     
+    func getDayOfToday() -> String {
+        let today = getPersianDate(date: Date())
+        guard let todayCal = convertToGregorian(year: today.year,
+                                                            month: today.month,
+                                                            day: today.day)
+            else {return "1"}
+        
+        let date = cal.dateComponents([.day], from: todayCal)
+        return String(date.day ?? 0)
+        
+    }
+    
     func convertToGregorian(year: Int, month: Int, day: Int) -> Date? {
         guard let persianDate = getPersianDate(year: year, month: month, day: day) else {return nil}
         let dateFormatter = DateFormatter()

@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import PersianCalendar
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var vwCalendar: PersianCalendarView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        vwCalendar.style = .dark
+        vwCalendar.cornerType = .corner
     }
-
 
 }
 

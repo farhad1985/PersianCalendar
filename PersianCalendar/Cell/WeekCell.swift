@@ -8,6 +8,11 @@
 
 import UIKit
 
+public enum CornerType {
+    case circular
+    case corner
+}
+
 class WeekCell: UICollectionViewCell {
     
     let title = UILabel()
@@ -25,7 +30,55 @@ class WeekCell: UICollectionViewCell {
     private func setup() {
         addSubview(title)
         
-        title.font = UIFont.systemFont(ofSize: 13)
+        title.font = GlobalCalendar.font
+    }
+    
+    func config(text: String, style: StyleCalendar, type: CornerType, isToday: Bool) {
+        if text == "" {
+            backgroundColor = .clear
+        } else {
+            title.font = GlobalCalendar.font
+            setStyle(style: style, isToday: isToday)
+            switch type {
+            case .circular:
+                layer.cornerRadius = self.frame.width / 2
+            default:
+                layer.cornerRadius = 7
+            }
+        }
+        title.text = text
+    }
+    
+    private func setStyle(style: StyleCalendar, isToday: Bool) {
+        let textColor: UIColor
+        let backColor: UIColor
+
+        switch style {
+        case .light:
+            textColor = .black
+            if isToday {
+                backColor = .red
+            } else {
+                backColor = .clear
+            }
+        case .dark:
+            textColor = .white
+            if isToday {
+                backColor = .red
+            } else {
+                backColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
+            }
+        case .custom(let fontColor, let backCell, let today, let selection):
+            textColor = fontColor
+            if isToday {
+                backColor = today
+            } else {
+                backColor = backCell
+            }
+        }
+        
+        title.textColor = textColor
+        backgroundColor = backColor
     }
     
     override func layoutSubviews() {

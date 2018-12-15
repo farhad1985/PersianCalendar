@@ -13,6 +13,7 @@
 		16C4ACDE21BE4A2B000B4439 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACDD21BE4A2B000B4439 /* WeekCell.swift */; };
 		16C4ACE221BE8426000B4439 /* DaysCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACE121BE8426000B4439 /* DaysCollectionView.swift */; };
 		16C4ACE621BE8B45000B4439 /* CalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACE521BE8B45000B4439 /* CalViewModel.swift */; };
+		16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		16C4ACDD21BE4A2B000B4439 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
 		16C4ACE121BE8426000B4439 /* DaysCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionView.swift; sourceTree = "<group>"; };
 		16C4ACE521BE8B45000B4439 /* CalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalViewModel.swift; sourceTree = "<group>"; };
+		16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				16C4ACE321BE8B32000B4439 /* View */,
 				16C4ACAE21BE45D2000B4439 /* PersianCalendar.h */,
 				16C4ACAF21BE45D2000B4439 /* Info.plist */,
+				16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */,
 			);
 			path = PersianCalendar;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				16C4ACD521BE46CA000B4439 /* PersianCalendarView.swift in Sources */,
 				16C4ACE621BE8B45000B4439 /* CalViewModel.swift in Sources */,
+				16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */,
 				16C4ACDE21BE4A2B000B4439 /* WeekCell.swift in Sources */,
 				16C4ACDB21BE4896000B4439 /* WeekDaysView.swift in Sources */,
 				16C4ACE221BE8426000B4439 /* DaysCollectionView.swift in Sources */,
