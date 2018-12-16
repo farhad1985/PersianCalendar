@@ -63,9 +63,9 @@ extension WeekDaysView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WeekCell
         cell.title.text = weekDay[indexPath.row]
-//        let font = UIFont(name: GlobalCalendar.font.fontName, size: 10)
+        let font = UIFont(name: GlobalCalendar.font.fontName, size: 10)
         
-//        cell.title.font = font
+        cell.title.font = font
         return cell
     }
     

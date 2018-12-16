@@ -37,11 +37,11 @@ public class PersianCalendarView: UIView {
         setup()
     }
     
-//    public var font: UIFont = GlobalCalendar.font {
-//        didSet {
-//            GlobalCalendar.font = font
-//        }
-//    }
+    public var font: UIFont = GlobalCalendar.font {
+        didSet {
+            GlobalCalendar.font = font
+        }
+    }
 
     private func setup() {
         let vc = PersianCalendarVC()
@@ -64,7 +64,7 @@ public class PersianCalendarView: UIView {
         addSubview(pageController.view)
         pageController.dataSource = self
         pageController.delegate = self
-//        GlobalCalendar.selectedCal = viewModel.getDayOfToday()
+        GlobalCalendar.selectedCal = viewModel.getDayOfToday()
         DispatchQueue.main.async {
             self.pageController.setViewControllers([self.listVC.first!],
                                               direction: .forward,
