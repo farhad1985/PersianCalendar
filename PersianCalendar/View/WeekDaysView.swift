@@ -27,18 +27,21 @@ class WeekDaysView: UIView {
     }
     
     private func setup() {
-        weekDay = ["جمعه", "۵ شنبه", "۴ شنبه", "۳ شنبه", "۲ شنبه", "۱ شنبه", "شنبه", ]
+        weekDay = ["جمعه", "پنجشنبه", "چهارشنبه", "سه شنبه", "دوشنبه", "یکشنبه", "شنبه", ]
 
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
         collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         addSubview(collection)
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")
         collection.dataSource = self
         collection.delegate = self
         collection.backgroundColor = .white
+        backgroundColor = .red
     }
     
     override func layoutSubviews() {
@@ -61,6 +64,9 @@ extension WeekDaysView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WeekCell
         cell.title.text = weekDay[indexPath.row]
+        let font = UIFont(name: GlobalCalendar.font.fontName, size: 10)
+        
+        cell.title.font = font
         return cell
     }
     

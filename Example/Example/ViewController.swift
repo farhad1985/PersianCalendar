@@ -16,8 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vwCalendar.style = .dark
-        vwCalendar.cornerType = .corner
+        vwCalendar.font = UIFont(name: "IRANSansMonoSpacedNum-Light", size: 20)!
     }
 
 }

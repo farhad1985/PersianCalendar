@@ -14,6 +14,7 @@
 		16C4ACCD21BE4634000B4439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C4ACCB21BE4634000B4439 /* LaunchScreen.storyboard */; };
 		16E8F30221C521C1004061C7 /* PersianCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E8F30121C521C1004061C7 /* PersianCalendar.framework */; };
 		16E8F30321C521C1004061C7 /* PersianCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16E8F30121C521C1004061C7 /* PersianCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		16E8F30521C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16E8F30421C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		16C4ACCC21BE4634000B4439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16C4ACCE21BE4634000B4439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E8F30121C521C1004061C7 /* PersianCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PersianCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E8F30421C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMonoSpacedNum_Light.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		16C4ACC121BE4632000B4439 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				16E8F30421C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf */,
 				16C4ACC221BE4632000B4439 /* AppDelegate.swift */,
 				16C4ACC421BE4632000B4439 /* ViewController.swift */,
 				16C4ACC621BE4632000B4439 /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			files = (
 				16C4ACCD21BE4634000B4439 /* LaunchScreen.storyboard in Resources */,
 				16C4ACCA21BE4634000B4439 /* Assets.xcassets in Resources */,
+				16E8F30521C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf in Resources */,
 				16C4ACC821BE4632000B4439 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

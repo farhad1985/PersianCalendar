@@ -8,24 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		16C4ACB021BE45D2000B4439 /* PersianCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 16C4ACAE21BE45D2000B4439 /* PersianCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16C4ACD521BE46CA000B4439 /* PersianCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACD421BE46CA000B4439 /* PersianCalendarView.swift */; };
+		16C4ACD521BE46CA000B4439 /* PersianCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACD421BE46CA000B4439 /* PersianCalendarVC.swift */; };
 		16C4ACDB21BE4896000B4439 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACDA21BE4896000B4439 /* WeekDaysView.swift */; };
 		16C4ACDE21BE4A2B000B4439 /* WeekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACDD21BE4A2B000B4439 /* WeekCell.swift */; };
 		16C4ACE221BE8426000B4439 /* DaysCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACE121BE8426000B4439 /* DaysCollectionView.swift */; };
 		16C4ACE621BE8B45000B4439 /* CalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C4ACE521BE8B45000B4439 /* CalViewModel.swift */; };
 		16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */; };
+		16EE56FF21C612B50033057E /* PersianCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE56FE21C612B50033057E /* PersianCalendarView.swift */; };
+		16EE570221C6137E0033057E /* CalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE570121C6137E0033057E /* CalDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16C4ACAB21BE45D2000B4439 /* PersianCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PersianCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C4ACAE21BE45D2000B4439 /* PersianCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersianCalendar.h; sourceTree = "<group>"; };
 		16C4ACAF21BE45D2000B4439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16C4ACD421BE46CA000B4439 /* PersianCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianCalendarView.swift; sourceTree = "<group>"; };
+		16C4ACD421BE46CA000B4439 /* PersianCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianCalendarVC.swift; sourceTree = "<group>"; };
 		16C4ACDA21BE4896000B4439 /* WeekDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		16C4ACDD21BE4A2B000B4439 /* WeekCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCell.swift; sourceTree = "<group>"; };
 		16C4ACE121BE8426000B4439 /* DaysCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCollectionView.swift; sourceTree = "<group>"; };
 		16C4ACE521BE8B45000B4439 /* CalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalViewModel.swift; sourceTree = "<group>"; };
 		16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCalendar.swift; sourceTree = "<group>"; };
+		16EE56FE21C612B50033057E /* PersianCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianCalendarView.swift; sourceTree = "<group>"; };
+		16EE570121C6137E0033057E /* CalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		16C4ACAD21BE45D2000B4439 /* PersianCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				16EE570021C6136E0033057E /* Model */,
 				16C4ACE421BE8B3A000B4439 /* ViewModel */,
 				16C4ACDC21BE4A0E000B4439 /* Cell */,
 				16C4ACE321BE8B32000B4439 /* View */,
@@ -79,7 +84,8 @@
 		16C4ACE321BE8B32000B4439 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16C4ACD421BE46CA000B4439 /* PersianCalendarView.swift */,
+				16EE56FE21C612B50033057E /* PersianCalendarView.swift */,
+				16C4ACD421BE46CA000B4439 /* PersianCalendarVC.swift */,
 				16C4ACDA21BE4896000B4439 /* WeekDaysView.swift */,
 				16C4ACE121BE8426000B4439 /* DaysCollectionView.swift */,
 			);
@@ -92,6 +98,14 @@
 				16C4ACE521BE8B45000B4439 /* CalViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		16EE570021C6136E0033057E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16EE570121C6137E0033057E /* CalDate.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,11 +187,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16C4ACD521BE46CA000B4439 /* PersianCalendarView.swift in Sources */,
+				16C4ACD521BE46CA000B4439 /* PersianCalendarVC.swift in Sources */,
 				16C4ACE621BE8B45000B4439 /* CalViewModel.swift in Sources */,
 				16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */,
+				16EE56FF21C612B50033057E /* PersianCalendarView.swift in Sources */,
 				16C4ACDE21BE4A2B000B4439 /* WeekCell.swift in Sources */,
 				16C4ACDB21BE4896000B4439 /* WeekDaysView.swift in Sources */,
+				16EE570221C6137E0033057E /* CalDate.swift in Sources */,
 				16C4ACE221BE8426000B4439 /* DaysCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

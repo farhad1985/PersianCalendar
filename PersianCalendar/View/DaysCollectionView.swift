@@ -11,11 +11,11 @@ import UIKit
 class DaysCollectionView: UIView {
     
     private var collection: UICollectionView!
-    fileprivate var days: [String] = []
+    fileprivate var calDays: [CalDate] = []
     private var width: CGFloat = 0
     private var style: StyleCalendar = .light
     private var type: CornerType = .circular
-    private var today = ""
+    private var today: CalDate!
 
     init(style: StyleCalendar, type: CornerType) {
         super.init(frame: .zero)
@@ -37,8 +37,8 @@ class DaysCollectionView: UIView {
         setup()
     }
     
-    func setDate(days: [String], today: String) {
-        self.days = days
+    func setDate(calDays: [CalDate], today: CalDate) {
+        self.calDays = calDays
         self.today = today
         collection.reloadData()
     }
@@ -53,9 +53,10 @@ class DaysCollectionView: UIView {
     private func setup() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.minimumInteritemSpacing = 10
-
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        
         collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         addSubview(collection)
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")
@@ -63,13 +64,6 @@ class DaysCollectionView: UIView {
         collection.delegate = self
         collection.backgroundColor = .white
         collection.semanticContentAttribute = .forceRightToLeft
-    }
-    
-    private func setData(at index: Int) {
-        for i in 1..<(index + 1) {
-            days.append(String(i))
-        }
-        collection.reloadData()
     }
     
     override func layoutSubviews() {
@@ -80,25 +74,32 @@ class DaysCollectionView: UIView {
         collection.topAnchor.constraint(equalTo: topAnchor).isActive = true
         collection.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         width = frame.width
-        collection.reloadData()
     }
 }
 
 extension DaysCollectionView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return days.count
+        return calDays.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WeekCell
-        let num = days[indexPath.row]
-        let isToday = num == today
-        cell.config(text: num, style: style, type: type, isToday: isToday)
+        let day = calDays[indexPath.row]
+        let isToday: Bool
+        
+        isToday = day == today
+
+        cell.config(calDate: day, style: style, type: type, isToday: isToday)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = width / 9
         return CGSize(width: w, height: w)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let day = calDays[indexPath.row]
+        print("\(day.year)/\(day.month)/\(day.day)")
     }
 }

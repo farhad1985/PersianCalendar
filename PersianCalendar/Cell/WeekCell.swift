@@ -33,9 +33,10 @@ class WeekCell: UICollectionViewCell {
         title.font = GlobalCalendar.font
     }
     
-    func config(text: String, style: StyleCalendar, type: CornerType, isToday: Bool) {
-        if text == "" {
+    func config(calDate: CalDate, style: StyleCalendar, type: CornerType, isToday: Bool) {
+        if calDate.day == 0 {
             backgroundColor = .clear
+            title.text = ""
         } else {
             title.font = GlobalCalendar.font
             setStyle(style: style, isToday: isToday)
@@ -45,8 +46,8 @@ class WeekCell: UICollectionViewCell {
             default:
                 layer.cornerRadius = 7
             }
+            title.text = String(calDate.day)
         }
-        title.text = text
     }
     
     private func setStyle(style: StyleCalendar, isToday: Bool) {
@@ -79,6 +80,7 @@ class WeekCell: UICollectionViewCell {
         
         title.textColor = textColor
         backgroundColor = backColor
+        layoutSubviews()
     }
     
     override func layoutSubviews() {

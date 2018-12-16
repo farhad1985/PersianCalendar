@@ -2,35 +2,18 @@
 //  PersianCalendarView.swift
 //  PersianCalendar
 //
-//  Created by Farhad Faramarzi on 12/10/18.
+//  Created by Farhad Faramarzi on 12/16/18.
 //  Copyright © 2018 Farhad. All rights reserved.
 //
 
 import UIKit
 
-public enum StyleCalendar {
-    case light
-    case dark
-    case custom(font: UIColor, backCell: UIColor, today: UIColor, selection: UIColor)
-}
-
-public class PersianCalendarView: UIView {
-
-    let vwWeek = WeekDaysView()
-    var daysCollection = DaysCollectionView()
-    let viewModel = CalViewModel()
+open class PersianCalendarView: UIView {
+    var viewModel = CalViewModel()
+    var pageController: UIPageViewController!
+    private var listVC: [PersianCalendarVC] = []
+    private var currentDate: CalDate!
     
-    public var style: StyleCalendar = .dark {
-        didSet {
-            setSytle()
-        }
-    }
-    public var cornerType: CornerType = .circular {
-        didSet {
-            setSytle()
-        }
-    }
-
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -43,33 +26,80 @@ public class PersianCalendarView: UIView {
         setup()
     }
     
-    private func setSytle() {
-        daysCollection.setStyle(style: style, type: cornerType)
+    public var font: UIFont = GlobalCalendar.font {
+        didSet {
+            GlobalCalendar.font = font
+        }
     }
-    
+
     private func setup() {
-        daysCollection = DaysCollectionView(style: style, type: cornerType)
+        let vc = PersianCalendarVC()
+        vc.pageIndex = 0
+        vc.setData(dataSource: viewModel.getCurrentCollectionOfDate(), today: viewModel.getDayOfToday())
+        listVC.append(vc)
+
+        for i in 1..<12 {
+            let vc = PersianCalendarVC()
+            vc.pageIndex = i
+            vc.setData(dataSource: viewModel.nextMothDate(), today: viewModel.getDayOfToday())
+            listVC.append(vc)
+        }
         
-        addSubview(vwWeek)
-        addSubview(daysCollection)
-        let date = viewModel.getCurrentDate()
-        let days = viewModel.daysRange(ofYear: date.year, month: date.month, startDate: date.startDate)
-        daysCollection.setDate(days: days, today: viewModel.getDayOfToday())        
+        pageController = UIPageViewController(transitionStyle: .scroll,
+                                              navigationOrientation: .horizontal,
+                                              options: nil)
+        
+        
+        addSubview(pageController.view)
+        pageController.dataSource = self
+        pageController.delegate = self
+
+        DispatchQueue.main.async {
+            self.pageController.setViewControllers([self.listVC.first!],
+                                              direction: .forward,
+                                              animated: true,
+                                              completion: nil)
+
+        }
+        
+
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
+        pageController.view.translatesAutoresizingMaskIntoConstraints = false
+        pageController.view.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        pageController.view.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        pageController.view.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        pageController.view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    }
+}
+
+extension PersianCalendarView: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        vwWeek.translatesAutoresizingMaskIntoConstraints = false
-        vwWeek.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        vwWeek.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        vwWeek.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        vwWeek.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        guard let vc = viewController as? PersianCalendarVC else {return nil}
+        let pageIndex = vc.pageIndex + 1
         
-        daysCollection.translatesAutoresizingMaskIntoConstraints = false
-        daysCollection.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        daysCollection.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        daysCollection.topAnchor.constraint(equalTo: vwWeek.bottomAnchor).isActive = true
-        daysCollection.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        guard pageIndex < listVC.count else {
+                return nil
+        }
+        return listVC[pageIndex]
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let vc = viewController as? PersianCalendarVC else {return nil}
+        let pageIndex = vc.pageIndex - 1
+        guard pageIndex >= 0 else {
+                return nil
+        }
+        print(pageIndex)
+        return listVC[pageIndex]
+    }
+    
+    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return listVC.count
     }
 }
