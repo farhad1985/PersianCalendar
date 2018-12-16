@@ -64,7 +64,7 @@ public class PersianCalendarView: UIView {
         addSubview(pageController.view)
         pageController.dataSource = self
         pageController.delegate = self
-        GlobalCalendar.selectedCal = viewModel.getDayOfToday()
+//        GlobalCalendar.selectedCal = viewModel.getDayOfToday()
         DispatchQueue.main.async {
             self.pageController.setViewControllers([self.listVC.first!],
                                               direction: .forward,

@@ -41,12 +41,12 @@ class WeekCell: UICollectionViewCell {
             title.font = GlobalCalendar.font
             title.text = String(calDate.day)
 
-            if calDate == GlobalCalendar.selectedCal {
-                title.textColor = .white
-                backgroundColor = .red
-            } else {
-                setStyle(style: .dark, isToday: isToday)
-            }
+//            if calDate == GlobalCalendar.selectedCal {
+//                title.textColor = .white
+//                backgroundColor = .red
+//            } else {
+//                setStyle(style: .dark, isToday: isToday)
+//            }
             
             switch type {
             case .circular:

@@ -13,5 +13,5 @@ public class GlobalCalendar {
     static var weekColor: UIColor = .black
     static var dayColor: UIColor = .black
     static var dayViewColor: UIColor = .red
-    static var selectedCal = CalDate(year: 0, month: 0, day: 0, nameMonth: "")
+    public static var selectedCal: CalDate = CalDate(year: 0, month: 0, day: 0, nameMonth: "")
 }
