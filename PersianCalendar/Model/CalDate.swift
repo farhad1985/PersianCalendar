@@ -13,7 +13,6 @@ public struct CalDate: Equatable {
     public var month: Int
     public var day: Int
     public var nameMonth: String
-    var isSelected = false
     
     public init(year: Int, month: Int, day: Int, nameMonth: String) {
         self.year = year
