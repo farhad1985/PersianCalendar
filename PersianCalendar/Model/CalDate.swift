@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CalDate: Equatable {
+public class CalDate: Equatable {
     public var year: Int
     public var month: Int
     public var day: Int
