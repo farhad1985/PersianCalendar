@@ -13,4 +13,5 @@ class GlobalCalendar {
     static var weekColor: UIColor = .black
     static var dayColor: UIColor = .black
     static var dayViewColor: UIColor = .red
+    static var selectedCal: CalDate!
 }

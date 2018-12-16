@@ -17,11 +17,13 @@ class DaysCollectionView: UIView {
     private var type: CornerType = .circular
     private var today: CalDate!
 
-    init(style: StyleCalendar, type: CornerType) {
+    var delegate: Listener?
+
+    init(style: StyleCalendar, type: CornerType, delegate: Listener?) {
         super.init(frame: .zero)
         self.style = style
         self.type = type
-        
+        self.delegate = delegate
         setup()
     }
     
@@ -50,6 +52,10 @@ class DaysCollectionView: UIView {
         collection.reloadData()
     }
     
+    func reload() {
+        collection.reloadData()
+    }
+    
     private func setup() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -62,7 +68,7 @@ class DaysCollectionView: UIView {
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")
         collection.dataSource = self
         collection.delegate = self
-        collection.backgroundColor = .white
+        collection.backgroundColor = .clear
         collection.semanticContentAttribute = .forceRightToLeft
     }
     
@@ -100,6 +106,8 @@ extension DaysCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let day = calDays[indexPath.row]
-        print("\(day.year)/\(day.month)/\(day.day)")
+        GlobalCalendar.selectedCal = day
+        collection.reloadData()
+        delegate?(day)
     }
 }

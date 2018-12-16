@@ -20,13 +20,13 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjZ-64-6fn" customClass="PersianCalendarView" customModule="PersianCalendar">
                                 <rect key="frame" x="16" y="36" width="343" height="350"/>
-                                <color key="backgroundColor" red="0.23529411759999999" green="0.21960784310000001" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="0.97647058819999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="m5M-Ge-SSn"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.23652353879999999" green="0.21839842200000001" blue="0.52944058179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="0.97647058819999999" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bjZ-64-6fn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="BKw-p2-i4J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bjZ-64-6fn" secondAttribute="trailing" constant="16" id="hhb-Xa-Ap5"/>

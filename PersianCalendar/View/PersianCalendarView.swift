@@ -8,11 +8,22 @@
 
 import UIKit
 
-open class PersianCalendarView: UIView {
+public typealias Listener = (_ calDate: CalDate) -> ()
+
+public class PersianCalendarView: UIView {
     var viewModel = CalViewModel()
     var pageController: UIPageViewController!
     private var listVC: [PersianCalendarVC] = []
     private var currentDate: CalDate!
+    
+    public var delegate: Listener? {
+        didSet {
+           listVC = listVC.map { (item) -> PersianCalendarVC in
+                item.delegate = delegate
+                return item
+            }
+        }
+    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +48,7 @@ open class PersianCalendarView: UIView {
         vc.pageIndex = 0
         vc.setData(dataSource: viewModel.getCurrentCollectionOfDate(), today: viewModel.getDayOfToday())
         listVC.append(vc)
-
+        
         for i in 1..<12 {
             let vc = PersianCalendarVC()
             vc.pageIndex = i
@@ -53,7 +64,7 @@ open class PersianCalendarView: UIView {
         addSubview(pageController.view)
         pageController.dataSource = self
         pageController.delegate = self
-
+        GlobalCalendar.selectedCal = viewModel.getDayOfToday()
         DispatchQueue.main.async {
             self.pageController.setViewControllers([self.listVC.first!],
                                               direction: .forward,

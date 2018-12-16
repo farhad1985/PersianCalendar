@@ -39,14 +39,21 @@ class WeekCell: UICollectionViewCell {
             title.text = ""
         } else {
             title.font = GlobalCalendar.font
-            setStyle(style: style, isToday: isToday)
+            title.text = String(calDate.day)
+
+            if calDate == GlobalCalendar.selectedCal {
+                title.textColor = .white
+                backgroundColor = .red
+            } else {
+                setStyle(style: .dark, isToday: isToday)
+            }
+            
             switch type {
             case .circular:
                 layer.cornerRadius = self.frame.width / 2
             default:
                 layer.cornerRadius = 7
             }
-            title.text = String(calDate.day)
         }
     }
     
@@ -57,18 +64,11 @@ class WeekCell: UICollectionViewCell {
         switch style {
         case .light:
             textColor = .black
-            if isToday {
-                backColor = .red
-            } else {
-                backColor = .clear
-            }
+            backColor = .clear
         case .dark:
             textColor = .white
-            if isToday {
-                backColor = .red
-            } else {
-                backColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
-            }
+            backColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
+            
         case .custom(let fontColor, let backCell, let today, let selection):
             textColor = fontColor
             if isToday {

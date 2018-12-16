@@ -40,8 +40,7 @@ class WeekDaysView: UIView {
         collection.register(WeekCell.self, forCellWithReuseIdentifier: "cell")
         collection.dataSource = self
         collection.delegate = self
-        collection.backgroundColor = .white
-        backgroundColor = .red
+        collection.backgroundColor = .clear
     }
     
     override func layoutSubviews() {

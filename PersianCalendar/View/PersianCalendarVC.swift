@@ -23,7 +23,12 @@ class PersianCalendarVC: UIViewController{
     var pageIndex = 0
     var dataSource: [CalDate] = []
     var today: CalDate!
-    
+    var delegate: Listener?{
+        didSet {
+            collection.delegate = delegate
+        }
+    }
+
     init() {
         let bundle = Bundle(for: PersianCalendarVC.self)
         super.init(nibName: nil, bundle: bundle)
@@ -41,14 +46,23 @@ class PersianCalendarVC: UIViewController{
         self.dataSource = dataSource
         self.today = today
         collection.setDate(calDays: dataSource, today: today)
-        lblTitle.text = "\(dataSource[0].year) / \(dataSource[0].nameMonth)"
+        lblTitle.text = "\(dataSource[0].nameMonth) \(dataSource[0].year)"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        lblTitle.font = GlobalCalendar.font
+        collection.reload()
     }
     
     private func setup() {
-        collection = DaysCollectionView(style: .dark, type: .corner)
+        collection = DaysCollectionView(style: .dark,
+                                        type: .corner,
+                                        delegate: delegate)
+
         lblTitle.textAlignment = .center
-        lblTitle.textColor = .blue
-        lblTitle.backgroundColor = .white
+        lblTitle.textColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
         lblTitle.font = GlobalCalendar.font
 
         view.addSubview(lblTitle)
@@ -58,7 +72,6 @@ class PersianCalendarVC: UIViewController{
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         
         lblTitle.translatesAutoresizingMaskIntoConstraints = false
         lblTitle.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
