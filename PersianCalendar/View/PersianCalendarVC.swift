@@ -52,7 +52,7 @@ class PersianCalendarVC: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        lblTitle.font = GlobalCalendar.font
+//        lblTitle.font = GlobalCalendar.font
         collection.reload()
     }
     
@@ -63,7 +63,7 @@ class PersianCalendarVC: UIViewController{
 
         lblTitle.textAlignment = .center
         lblTitle.textColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
-        lblTitle.font = GlobalCalendar.font
+//        lblTitle.font = GlobalCalendar.font
 
         view.addSubview(lblTitle)
         view.addSubview(vwWeek)

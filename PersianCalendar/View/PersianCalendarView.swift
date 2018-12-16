@@ -37,11 +37,11 @@ public class PersianCalendarView: UIView {
         setup()
     }
     
-    public var font: UIFont = GlobalCalendar.font {
-        didSet {
-            GlobalCalendar.font = font
-        }
-    }
+//    public var font: UIFont = GlobalCalendar.font {
+//        didSet {
+//            GlobalCalendar.font = font
+//        }
+//    }
 
     private func setup() {
         let vc = PersianCalendarVC()

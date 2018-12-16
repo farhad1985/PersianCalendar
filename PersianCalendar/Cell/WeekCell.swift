@@ -30,7 +30,7 @@ class WeekCell: UICollectionViewCell {
     private func setup() {
         addSubview(title)
         
-        title.font = GlobalCalendar.font
+//        title.font = GlobalCalendar.font
     }
     
     func config(calDate: CalDate, style: StyleCalendar, type: CornerType, isToday: Bool) {
@@ -38,7 +38,7 @@ class WeekCell: UICollectionViewCell {
             backgroundColor = .clear
             title.text = ""
         } else {
-            title.font = GlobalCalendar.font
+//            title.font = GlobalCalendar.font
             title.text = String(calDate.day)
 
 //            if calDate == GlobalCalendar.selectedCal {

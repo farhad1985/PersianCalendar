@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vwCalendar.font = UIFont(name: "IRANSansMonoSpacedNum-Light", size: 20)!
+//        vwCalendar.font = UIFont(name: "IRANSansMonoSpacedNum-Light", size: 20)!
         vwCalendar.delegate = { calDate in
             print(calDate)
         }
