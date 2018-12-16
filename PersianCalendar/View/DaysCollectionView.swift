@@ -16,9 +16,9 @@ class DaysCollectionView: UIView {
     private var style: StyleCalendar = .light
     private var type: CornerType = .circular
     private var today: CalDate!
-    
+
     var delegate: Listener?
-    
+
     init(style: StyleCalendar, type: CornerType, delegate: Listener?) {
         super.init(frame: .zero)
         self.style = style
@@ -48,7 +48,7 @@ class DaysCollectionView: UIView {
     func setStyle(style: StyleCalendar, type: CornerType) {
         self.style = style
         self.type = type
-        
+
         collection.reloadData()
     }
     
@@ -93,10 +93,8 @@ extension DaysCollectionView: UICollectionViewDataSource, UICollectionViewDelega
         let day = calDays[indexPath.row]
         let isToday: Bool
         
-        isToday = day.year == GlobalCalendar.selectedCal.year &&
-            day.month == GlobalCalendar.selectedCal.month &&
-            day.day == GlobalCalendar.selectedCal.day
-        
+        isToday = day == today
+
         cell.config(calDate: day, style: style, type: type, isToday: isToday)
         return cell
     }

@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class CalDate {
-    public var year: Int
-    public var month: Int
-    public var day: Int
-    public var nameMonth: String
+public class CalDate: Equatable {
+    public var year: Int = 0
+    public var month: Int = 0
+    public var day: Int = 0
+    public var nameMonth: String = ""
     
     public init(year: Int, month: Int, day: Int, nameMonth: String) {
         self.year = year
@@ -21,9 +21,9 @@ public class CalDate {
         self.nameMonth = nameMonth
     }
     
-//    public static func ==(lhs: CalDate, rhs: CalDate) -> Bool {
-//        return (lhs.year == rhs.year) &&
-//            (lhs.month == rhs.month) &&
-//            (lhs.day == rhs.day)
-//    }
+    public static func ==(lhs: CalDate, rhs: CalDate) -> Bool {
+        return (lhs.year == rhs.year) &&
+            (lhs.month == rhs.month) &&
+            (lhs.day == rhs.day)
+    }
 }

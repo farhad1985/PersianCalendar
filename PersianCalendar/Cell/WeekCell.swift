@@ -41,9 +41,7 @@ class WeekCell: UICollectionViewCell {
             title.font = GlobalCalendar.font
             title.text = String(calDate.day)
 
-            if calDate.year == GlobalCalendar.selectedCal.year &&
-                calDate.month == GlobalCalendar.selectedCal.month &&
-                calDate.day == GlobalCalendar.selectedCal.day {
+            if calDate == GlobalCalendar.selectedCal {
                 title.textColor = .white
                 backgroundColor = .red
             } else {
@@ -66,7 +64,7 @@ class WeekCell: UICollectionViewCell {
         switch style {
         case .light:
             textColor = .black
-            backColor = .clear
+                backColor = .clear
         case .dark:
             textColor = .white
             backColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
