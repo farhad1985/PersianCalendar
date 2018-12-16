@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CalDate: Equatable {
+public class CalDate {
     public var year: Int
     public var month: Int
     public var day: Int
@@ -21,9 +21,9 @@ public class CalDate: Equatable {
         self.nameMonth = nameMonth
     }
     
-    public static func ==(lhs: CalDate, rhs: CalDate) -> Bool {
-        return (lhs.year == rhs.year) &&
-            (lhs.month == rhs.month) &&
-            (lhs.day == rhs.day)
-    }
+//    public static func ==(lhs: CalDate, rhs: CalDate) -> Bool {
+//        return (lhs.year == rhs.year) &&
+//            (lhs.month == rhs.month) &&
+//            (lhs.day == rhs.day)
+//    }
 }
