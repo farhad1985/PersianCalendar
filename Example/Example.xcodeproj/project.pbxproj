@@ -12,9 +12,9 @@
 		16C4ACC821BE4632000B4439 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C4ACC621BE4632000B4439 /* Main.storyboard */; };
 		16C4ACCA21BE4634000B4439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C4ACC921BE4634000B4439 /* Assets.xcassets */; };
 		16C4ACCD21BE4634000B4439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C4ACCB21BE4634000B4439 /* LaunchScreen.storyboard */; };
-		16E8F30221C521C1004061C7 /* PersianCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E8F30121C521C1004061C7 /* PersianCalendar.framework */; };
-		16E8F30321C521C1004061C7 /* PersianCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16E8F30121C521C1004061C7 /* PersianCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16E8F30521C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16E8F30421C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf */; };
+		16EE570421C67FCF0033057E /* PersianCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE570321C67FCF0033057E /* PersianCalendar.framework */; };
+		16EE570521C67FCF0033057E /* PersianCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE570321C67FCF0033057E /* PersianCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16E8F30321C521C1004061C7 /* PersianCalendar.framework in Embed Frameworks */,
+				16EE570521C67FCF0033057E /* PersianCalendar.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,8 +39,8 @@
 		16C4ACC921BE4634000B4439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16C4ACCC21BE4634000B4439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16C4ACCE21BE4634000B4439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16E8F30121C521C1004061C7 /* PersianCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PersianCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E8F30421C531B4004061C7 /* IRANSansMonoSpacedNum_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMonoSpacedNum_Light.ttf; sourceTree = "<group>"; };
+		16EE570321C67FCF0033057E /* PersianCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PersianCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16E8F30221C521C1004061C7 /* PersianCalendar.framework in Frameworks */,
+				16EE570421C67FCF0033057E /* PersianCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		16C4ACB621BE4632000B4439 = {
 			isa = PBXGroup;
 			children = (
-				16E8F30121C521C1004061C7 /* PersianCalendar.framework */,
+				16EE570321C67FCF0033057E /* PersianCalendar.framework */,
 				16C4ACC121BE4632000B4439 /* Example */,
 				16C4ACC021BE4632000B4439 /* Products */,
 			);
