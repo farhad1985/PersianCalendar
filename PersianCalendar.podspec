@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/farhad1985/PersianCalendar'
   s.author           = { 'Farhad Faramarzi' => 'farhad.public@gmail.com' }
-  s.license          = { :type => 'GPL2', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.source           = { :git => 'https://github.com/farhad1985/PersianCalendar.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
