@@ -16,6 +16,7 @@
 		16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */; };
 		16EE56FF21C612B50033057E /* PersianCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE56FE21C612B50033057E /* PersianCalendarView.swift */; };
 		16EE570221C6137E0033057E /* CalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE570121C6137E0033057E /* CalDate.swift */; };
+		16EE570721C68A7B0033057E /* AA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE570621C68A7B0033057E /* AA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		16E8F2FF21C51327004061C7 /* GlobalCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCalendar.swift; sourceTree = "<group>"; };
 		16EE56FE21C612B50033057E /* PersianCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianCalendarView.swift; sourceTree = "<group>"; };
 		16EE570121C6137E0033057E /* CalDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalDate.swift; sourceTree = "<group>"; };
+		16EE570621C68A7B0033057E /* AA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				16EE570121C6137E0033057E /* CalDate.swift */,
+				16EE570621C68A7B0033057E /* AA.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				16C4ACD521BE46CA000B4439 /* PersianCalendarVC.swift in Sources */,
 				16C4ACE621BE8B45000B4439 /* CalViewModel.swift in Sources */,
+				16EE570721C68A7B0033057E /* AA.swift in Sources */,
 				16E8F30021C51327004061C7 /* GlobalCalendar.swift in Sources */,
 				16EE56FF21C612B50033057E /* PersianCalendarView.swift in Sources */,
 				16C4ACDE21BE4A2B000B4439 /* WeekCell.swift in Sources */,

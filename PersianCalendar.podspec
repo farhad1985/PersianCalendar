@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/farhad1985/PersianCalendar.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
-  s.source_files = 'PersianCalendar/*'
+  s.source_files = 'PersianCalendar/*', "PersianCalendar/**/*.{swift,h,m}"
   s.exclude_files = "PersianCalendar/**/*.plist"
   s.swift_version = '4.2'
 

@@ -72,8 +72,6 @@ public class PersianCalendarView: UIView {
                                               completion: nil)
 
         }
-        
-
     }
     
     open override func layoutSubviews() {

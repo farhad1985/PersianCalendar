@@ -106,7 +106,7 @@ extension DaysCollectionView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let day = calDays[indexPath.row]
-//        GlobalCalendar.selectedCal = day
+        GlobalCalendar.selectedCal = day
         collection.reloadData()
         delegate?(day)
     }
