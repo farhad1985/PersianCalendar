@@ -69,7 +69,7 @@ class WeekCell: UICollectionViewCell {
             textColor = .white
             backColor = UIColor(red: 18/255, green: 0, blue: 94/255, alpha: 1)
             
-        case .custom(let fontColor, let backCell, let today, let selection):
+        case .custom(let fontColor, let backCell, let today, _):
             textColor = fontColor
             if isToday {
                 backColor = today

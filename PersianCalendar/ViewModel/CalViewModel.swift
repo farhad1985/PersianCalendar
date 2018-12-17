@@ -54,7 +54,7 @@ struct CalViewModel {
     mutating func nextMothDate() -> [CalDate] {
         var nextMonth = currentDate.calDate.month + 1
         var nextYear = currentDate.calDate.year
-        var date = currentDate.calDate
+        let date = currentDate.calDate
         if nextMonth > 12 {
             nextMonth = 1
             nextYear += 1
@@ -68,7 +68,7 @@ struct CalViewModel {
     mutating func backMothDate() -> [CalDate] {
         var nextMonth = currentDate.calDate.month - 1
         var nextYear = currentDate.calDate.year
-        var date = currentDate.calDate
+        let date = currentDate.calDate
         if nextMonth <= 0 {
             nextMonth = 12
             nextYear -= 1
@@ -133,7 +133,7 @@ struct CalViewModel {
     }
     
     private func getPersianDate(date: Date) -> (year:Int, month: Int, day: Int) {
-        let date = cal.dateComponents([.year, .month, .day], from: date)
+        var date = cal.dateComponents([.year, .month, .day], from: date)
         return (year: date.year ?? 0, month: date.month ?? 0, day: date.day ?? 0)
     }
     
@@ -143,7 +143,7 @@ struct CalViewModel {
                                                       month: today.month,
                                                       day: 1)
         
-        let date = cal.dateComponents([.year, .month, .day, .weekday],
+        var date = cal.dateComponents([.year, .month, .day, .weekday],
                                       from: firstDateOfThisMonth ?? Date())
         
         let startDate =  (date.weekday ?? 0)
@@ -160,7 +160,7 @@ struct CalViewModel {
                                                       month: calDate.month,
                                                       day: 1)
         
-        let date = cal.dateComponents([.year, .month, .day, .weekday],
+        var date = cal.dateComponents([.year, .month, .day, .weekday],
                                       from: firstDateOfThisMonth ?? Date())
         
         
